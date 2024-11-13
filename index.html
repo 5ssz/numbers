@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar Números Subíndices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .titulo-aplicacion {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .aplicacion-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .bloque {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80px;
+        }
+
+        .bloque-texto {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .boton-verde {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .boton-verde:hover {
+            background-color: #45a049;
+        }
+
+        .copy {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="titulo-aplicacion">
+        <h1>Números y Símbolos Subíndices</h1>
+    </div>
+
+    <div class="aplicacion-container">
+        <!-- Bloques de Subíndices -->
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₀</div>
+            <button class="boton-verde" onclick="copiar('₀')">Copiar</button>
+            <div class="copy" id="copiado₀">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₁</div>
+            <button class="boton-verde" onclick="copiar('₁')">Copiar</button>
+            <div class="copy" id="copiado₁">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₂</div>
+            <button class="boton-verde" onclick="copiar('₂')">Copiar</button>
+            <div class="copy" id="copiado₂">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₃</div>
+            <button class="boton-verde" onclick="copiar('₃')">Copiar</button>
+            <div class="copy" id="copiado₃">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₄</div>
+            <button class="boton-verde" onclick="copiar('₄')">Copiar</button>
+            <div class="copy" id="copiado₄">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₅</div>
+            <button class="boton-verde" onclick="copiar('₅')">Copiar</button>
+            <div class="copy" id="copiado₅">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₆</div>
+            <button class="boton-verde" onclick="copiar('₆')">Copiar</button>
+            <div class="copy" id="copiado₆">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₇</div>
+            <button class="boton-verde" onclick="copiar('₇')">Copiar</button>
+            <div class="copy" id="copiado₇">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₈</div>
+            <button class="boton-verde" onclick="copiar('₈')">Copiar</button>
+            <div class="copy" id="copiado₈">¡Copiado!</div>
+        </div>
+        <div class="bloque">
+            <div class="bloque-texto"><span>X</span>₉</div>
+            <button class="boton-verde" onclick="copiar('₉')">Copiar</button>
+            <div class="copy" id="copiado₉">¡Copiado!</div>
+        </div>
+        <!-- Agrega más bloques si es necesario -->
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+        }
+
+        function copiar(codigo) {
+            copyToClipboard(codigo);
+            document.getElementById('copiado' + codigo).style.display = "block";
+            setTimeout(function() {
+                document.getElementById('copiado' + codigo).style.display = "none";
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>
